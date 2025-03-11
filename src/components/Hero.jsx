@@ -19,18 +19,18 @@ export default function Hero({ onSearch }) {
   }
 
   return (
-    <section className="bg-ink px-6 py-16">
+    <section className="bg-ink px-4 sm:px-6 py-10 sm:py-16">
       <div className="max-w-3xl mx-auto text-left">
-        <h2 className="font-display text-4xl text-parchment">
+        <h2 className="font-display text-3xl sm:text-4xl text-parchment leading-tight">
           Jelajahi setiap negara di dunia
         </h2>
-        <p className="mt-3 text-steel">
+        <p className="mt-3 text-sm sm:text-base text-steel">
           Cari negara, filter berdasarkan region, dan lihat detailnya.
         </p>
 
         <form
           onSubmit={handleSubmit}
-          className="mt-8 flex flex-col sm:flex-row gap-3"
+          className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3"
         >
           <label className="flex-1">
             <span className="sr-only">Cari negara</span>
@@ -66,7 +66,7 @@ export default function Hero({ onSearch }) {
 
           <button
             type="submit"
-            className="rounded-lg bg-gold px-6 py-3 font-medium text-ink
+            className="w-full sm:w-auto rounded-lg bg-gold px-6 py-3 font-medium text-ink
                        hover:bg-gold/90 transition-colors"
           >
             Cari
