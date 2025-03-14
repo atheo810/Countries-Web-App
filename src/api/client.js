@@ -4,12 +4,10 @@ const BASE_URL =
 const API_KEY = import.meta.env.VITE_RESTCOUNTRIES_API_KEY;
 
 export async function apiGet(path, { signal } = {}) {
-  const res = await fetch(`${BASE_URL}${path}`, {
-    signal,
-    headers: {
-      Authorization: `Bearer ${API_KEY}`,
-    },
-  });
+  const url = new URL(`${BASE_URL}${path}`);
+  url.searchParams.set("api-key", API_KEY);
+
+  const res = await fetch(url, { signal });
 
   if (!res.ok) {
     const error = new Error(`API error ${res.status}`);

@@ -1,11 +1,14 @@
 import { apiGet } from "./client";
 
-const FIELDS = "name,capital,region,population,flags,cca3";
+const FIELDS = "names.common,capitals,region,population,flag,codes.alpha_3";
 
-export const getAllCountries = (opts) => apiGet(`/all?fields=${FIELDS}`, opts);
+export function searchCountries({ search, region } = {}, opts) {
+  const params = new URLSearchParams();
+  params.set("response_fields", FIELDS);
+  params.set("limit", "100");
 
-export const getCountriesByName = (name, opts) =>
-  apiGet(`/name/${encodeURIComponent(name)}?fields=${FIELDS}`, opts);
+  if (search) params.set("q", search);
+  if (region) params.set("region", region);
 
-export const getCountriesByRegion = (region, opts) =>
-  apiGet(`/region/${region}?fields=${FIELDS}`, opts);
+  return apiGet(`?${params.toString()}`, opts);
+}
