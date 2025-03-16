@@ -3,11 +3,13 @@ export default function CountryCard({ country }) {
 
   return (
     <div className="bg-surface border border-white/10 rounded-lg overflow-hidden hover:border-gold/50 transition-colors">
-      <img
-        src={flag?.url_svg || flag?.url_png}
-        alt={`Bendera ${names.common}`}
-        className="w-full h-28 sm:h-32 object-cover"
-      />
+      <div className="w-full h-28 sm:h-32 overflow-hidden bg-ink/40">
+        <img
+          src={flag?.url_svg || flag?.url_png}
+          alt={`Bendera ${names.common}`}
+          className="w-full h-full object-cover block"
+        />
+      </div>
       <div className="p-3 sm:p-4">
         <div className="flex items-center justify-between gap-2">
           <h3 className="font-display text-base sm:text-lg text-parchment truncate">

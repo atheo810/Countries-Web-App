@@ -1,22 +1,19 @@
-import Footer from "./components/Footer";
-import "./App.css";
-import Hero from "./components/Hero";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import { useState } from "react";
-import CountryList from "./components/CountryList";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Explore from "./pages/Explore";
+import About from "./pages/About";
 
 function App() {
-  const [filters, setFilters] = useState({ search: "", region: "" });
-
-  function handleSearch(newFilters) {
-    setFilters(newFilters);
-  }
-
   return (
     <>
       <Navbar />
-      <Hero onSearch={handleSearch} />
-      <CountryList filters={filters} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
       <Footer />
     </>
   );
