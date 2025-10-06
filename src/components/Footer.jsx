@@ -16,15 +16,6 @@ export default function Footer() {
         <p>WA: 08123456789</p>
         <p>Email: travel@gmail.com</p>
       </div>
-
-      <div>
-        <h3>Ikuti kami</h3>
-        {SOCIALS.map(({ label, href }) => (
-          <p key={label}>
-            {label}: <a href={href}>@{label.toLowerCase()}</a>
-          </p>
-        ))}
-      </div>
     </footer>
   );
 }
